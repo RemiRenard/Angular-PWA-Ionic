@@ -19,7 +19,7 @@ export class GithubPage implements OnInit {
   }
 
   getRepositories(){
-    this.isUsernameEmpty = !this.username.length || /^\s*$/.test(this.username.length));
+    this.isUsernameEmpty = (!this.username || /^\s*$/.test(this.username));
     if(this.isUsernameEmpty){
       return;
     }
