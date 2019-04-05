@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Github
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="loader" *ngIf="!isUsernameEmpty">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
+
+  <ion-item>
+    <ion-input placeholder="Enter a github username" [(ngModel)]="username"></ion-input>
+    <ion-button (click)='getRepositories()'>Search repositories</ion-button>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let repository of repositories">
+      <ion-label>{{repository.getId()}}</ion-label>
+      <ion-label>{{repository.getName()}}</ion-label>
+      <ion-label>{{repository.getDescription()}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
